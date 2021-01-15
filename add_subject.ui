@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dialog_new_subject</class>
+ <widget class="QDialog" name="dialog_new_subject">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>475</width>
+    <height>200</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Arial</family>
+    <pointsize>10</pointsize>
+    <italic>false</italic>
+   </font>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::DefaultContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Add Subject</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>11</y>
+     <width>451</width>
+     <height>177</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="vert_layout_new_subject">
+    <item>
+     <widget class="QLabel" name="lbl_new_subject">
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Add a New Subject</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="hori_line_new_subject">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="hori_layout_subject">
+      <item>
+       <widget class="QLabel" name="lbl_subject_name">
+        <property name="text">
+         <string>Subject Name:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="line_edit_subject_name"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="Line" name="hori_line_subject">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item alignment="Qt::AlignVCenter">
+     <widget class="QLabel" name="lbl_instruction">
+      <property name="font">
+       <font>
+        <italic>true</italic>
+       </font>
+      </property>
+      <property name="text">
+       <string>Please enter your subject name (maximum 30 characters).</string>
+      </property>
+     </widget>
+    </item>
+    <item alignment="Qt::AlignLeft|Qt::AlignTop">
+     <widget class="QDialogButtonBox" name="button_box_new_subject">
+      <property name="font">
+       <font>
+        <italic>false</italic>
+       </font>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="standardButtons">
+       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>button_box_new_subject</sender>
+   <signal>rejected()</signal>
+   <receiver>dialog_new_subject</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>button_box_new_subject</sender>
+   <signal>accepted()</signal>
+   <receiver>dialog_new_subject</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

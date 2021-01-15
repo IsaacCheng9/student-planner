@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mwindow_timetable</class>
+ <widget class="QMainWindow" name="mwindow_timetable">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>960</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Arial</family>
+    <pointsize>10</pointsize>
+    <kerning>true</kerning>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Timetable</string>
+  </property>
+  <widget class="QWidget" name="central_widget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="vert_layout_timetable">
+      <item>
+       <widget class="QLabel" name="lbl_timetable">
+        <property name="font">
+         <font>
+          <pointsize>16</pointsize>
+          <kerning>true</kerning>
+         </font>
+        </property>
+        <property name="text">
+         <string>Timetable</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="Line" name="hori_line_timetable">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="hori_layout_buttons">
+        <item alignment="Qt::AlignLeft">
+         <widget class="QPushButton" name="btn_edit_timetable">
+          <property name="text">
+           <string>Edit Timetable Slot</string>
+          </property>
+         </widget>
+        </item>
+        <item alignment="Qt::AlignLeft">
+         <widget class="QPushButton" name="btn_clear_timetable">
+          <property name="text">
+           <string>Clear Timetable Slot</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="hori_spacer_buttons">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="Line" name="hori_line_edit_timetable">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTableWidget" name="table_widget_timetable">
+        <property name="font">
+         <font>
+          <family>Arial</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: transparent</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="editTriggers">
+         <set>QAbstractItemView::NoEditTriggers</set>
+        </property>
+        <property name="tabKeyNavigation">
+         <bool>false</bool>
+        </property>
+        <property name="showDropIndicator" stdset="0">
+         <bool>true</bool>
+        </property>
+        <property name="selectionMode">
+         <enum>QAbstractItemView::SingleSelection</enum>
+        </property>
+        <property name="showGrid">
+         <bool>true</bool>
+        </property>
+        <property name="gridStyle">
+         <enum>Qt::DotLine</enum>
+        </property>
+        <property name="sortingEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>false</bool>
+        </property>
+        <attribute name="horizontalHeaderVisible">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="horizontalHeaderHighlightSections">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>false</bool>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>true</bool>
+        </attribute>
+        <row>
+         <property name="text">
+          <string>Period 1</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>Period 2</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>Period 3</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>Period 4</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>Period 5</string>
+         </property>
+        </row>
+        <column>
+         <property name="text">
+          <string>Monday</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Tuesday</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Wednesday</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Thursday</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Friday</string>
+         </property>
+        </column>
+        <item row="0" column="0">
+         <property name="text">
+          <string/>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <action name="actionAgenda">
+   <property name="text">
+    <string>Agenda</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dialog_edit_timetable</class>
+ <widget class="QDialog" name="dialog_edit_timetable">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>725</width>
+    <height>260</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Arial</family>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Edit Timetable Slot</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>11</x>
+     <y>11</y>
+     <width>701</width>
+     <height>235</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="vert_layout_edit_timetable">
+    <item>
+     <widget class="QLabel" name="lbl_edit_timetable">
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Edit Timetable Slot</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="hori_line_edit_timetable">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QFormLayout" name="form_layout_edit_timetable">
+      <item row="0" column="0">
+       <widget class="QLabel" name="lbl_subject">
+        <property name="text">
+         <string>Subject:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="comb_box_subject">
+        <property name="frame">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lbl_teacher">
+        <property name="text">
+         <string>Teacher:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="line_edit_teacher"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="lbl_room">
+        <property name="text">
+         <string>Room:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="line_edit_room"/>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="Line" name="hori_line_lesson_details">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="lbl_instruction">
+      <property name="font">
+       <font>
+        <italic>true</italic>
+       </font>
+      </property>
+      <property name="text">
+       <string>Please select a subject, and optionally a teacher and room (maximum 30 and 20 characters).</string>
+      </property>
+     </widget>
+    </item>
+    <item alignment="Qt::AlignLeft">
+     <widget class="QDialogButtonBox" name="button_box_edit_timetable">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="standardButtons">
+       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>button_box_edit_timetable</sender>
+   <signal>accepted()</signal>
+   <receiver>dialog_edit_timetable</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>button_box_edit_timetable</sender>
+   <signal>rejected()</signal>
+   <receiver>dialog_edit_timetable</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

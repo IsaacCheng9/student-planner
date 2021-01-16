@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>mwindow_menu</class>
+ <widget class="QMainWindow" name="mwindow_menu">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>170</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Arial</family>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Main Menu - Student Planner</string>
+  </property>
+  <widget class="QWidget" name="central_widget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="vert_layout_menu">
+      <item>
+       <widget class="QLabel" name="lbl_menu">
+        <property name="font">
+         <font>
+          <pointsize>16</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Student Planner - Main Menu</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="Line" name="hori_line_header">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="hori_layout_nav">
+        <item alignment="Qt::AlignLeft">
+         <widget class="QPushButton" name="btn_my_subjects">
+          <property name="text">
+           <string>My Subjects</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_agenda">
+          <property name="text">
+           <string>Agenda</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btn_timetable">
+          <property name="text">
+           <string>Timetable</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="hori_spacer_nav">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="Line" name="hori_line_nav">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lbl_instruction">
+        <property name="font">
+         <font>
+          <italic>true</italic>
+         </font>
+        </property>
+        <property name="text">
+         <string>To enable full functionality in the agenda and timetable, please ensure you have entered all of your subjects in My Subjects.</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::RichText</enum>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="vert_spacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

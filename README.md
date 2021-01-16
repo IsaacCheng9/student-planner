@@ -18,6 +18,10 @@ Python installation by default:
 pip install pyqt5
 ```
 
+## Instructions
+You can run the student planner by running `student_planner.py`, which will
+provide you with a main menu for the application.
+
 ## Other Details
 
 ### Code Style

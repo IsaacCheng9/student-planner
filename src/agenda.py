@@ -11,8 +11,8 @@ from datetime import datetime
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QDialog, QMainWindow
 
-from add_task_setup import Ui_dialog_new_task
-from agenda_setup import Ui_mwindow_agenda
+from src.setup.add_task_setup import Ui_dialog_new_task
+from src.setup.agenda_setup import Ui_mwindow_agenda
 
 
 def main() -> None:
@@ -30,12 +30,12 @@ def read_tasks() -> tuple:
         task_list: A list of all tasks.
         task_list_hidden: A list of tasks excluding completed tasks.
     """
-    with open('task_list.json', 'r') as outfile:
+    with open("data/task_list.json", "r") as outfile:
         try:
             task_list = json.load(outfile)
             json.dump(task_list, sys.stdout, ensure_ascii=False, indent=4)
 
-            with open('task_list_hidden.json', 'r') as outfile_hidden:
+            with open("data/task_list_hidden.json", "r") as outfile_hidden:
                 task_list_hidden = json.load(outfile_hidden)
         except ValueError:
             print("Empty JSON file.")
@@ -92,7 +92,7 @@ class AgendaWindow(QMainWindow, Ui_mwindow_agenda):
         self.Dialog.button_box_new_task.accepted.connect(self.save_task)
 
         # Populates the combo box with subject options.
-        with open("subject_list.txt", "r") as data_file:
+        with open("data/subject_list.txt", "r") as data_file:
             subject_list = data_file.readlines()
             for line in subject_list:
                 self.Dialog.comb_box_subject.addItem(line.strip("\n"))
@@ -153,19 +153,19 @@ class AgendaWindow(QMainWindow, Ui_mwindow_agenda):
 
     def save_task_list(self) -> None:
         """Updates the JSON file with the current task list."""
-        with open('task_list.json', 'w') as outfile:
+        with open("data/task_list.json", "w") as outfile:
             json.dump(self.task_list, outfile, ensure_ascii=False, indent=4)
 
         self.task_list_hidden[:] = [task for task in self.task_list if
                                     task["completed"] == "No"]
-        with open('task_list_hidden.json', 'w') as outfile:
+        with open("data/task_list_hidden.json", "w") as outfile:
             json.dump(self.task_list_hidden, outfile, ensure_ascii=False,
                       indent=4)
 
     def sort_task_list(self) -> None:
         """Sorts task list by due date."""
         self.task_list.sort(key=lambda task: datetime.strptime(
-            task["due_date"], '%d/%m/%Y'))
+            task["due_date"], "%d/%m/%Y"))
         self.save_task_list()
 
     def hide_completed_tasks(self) -> None:

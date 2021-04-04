@@ -9,8 +9,8 @@ import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QDialog, QMainWindow
 
-from edit_timetable_setup import Ui_dialog_edit_timetable
-from timetable_setup import Ui_mwindow_timetable
+from src.setup.edit_timetable_setup import Ui_dialog_edit_timetable
+from src.setup.timetable_setup import Ui_mwindow_timetable
 
 
 def main() -> None:
@@ -26,7 +26,7 @@ def read_lessons() -> list:
     Returns:
         timetable: A list of lessons in the timetable.
     """
-    with open('timetable.json', 'r') as outfile:
+    with open("data/timetable.json", "r") as outfile:
         try:
             timetable = json.load(outfile)
         except ValueError:
@@ -81,7 +81,7 @@ class TimetableWindow(QMainWindow, Ui_mwindow_timetable):
             self.save_lesson)
 
         # Populates the combo box with subject options.
-        with open("subject_list.txt", "r") as data_file:
+        with open("data/subject_list.txt", "r") as data_file:
             subject_list = data_file.readlines()
             for line in subject_list:
                 self.Dialog.comb_box_subject.addItem(line.strip("\n"))
@@ -108,7 +108,7 @@ class TimetableWindow(QMainWindow, Ui_mwindow_timetable):
 
     def save_timetable_list(self) -> None:
         """Updates the JSON file with the current timetable list."""
-        with open('timetable.json', 'w') as outfile:
+        with open("data/timetable.json", "w") as outfile:
             json.dump(self.timetable, outfile, ensure_ascii=False, indent=4)
         self.update_timetable()
 

@@ -5,8 +5,8 @@ import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QDialog, QMainWindow
 
-from add_subject_setup import Ui_dialog_new_subject
-from my_subjects_setup import Ui_mwindow_my_subjects
+from src.setup.add_subject_setup import Ui_dialog_new_subject
+from src.setup.my_subjects_setup import Ui_mwindow_my_subjects
 
 
 def main() -> None:
@@ -26,7 +26,7 @@ class AddSubjectDialog(QDialog, Ui_dialog_new_subject):
 
 def sort_subject_list() -> None:
     """Sorts the subject list text file alphanumerically."""
-    with open("subject_list.txt", "r+") as outfile:
+    with open("data/subject_list.txt", "r+") as outfile:
         lines = outfile.readlines()
         lines.sort()
 
@@ -47,7 +47,7 @@ class MySubjectsWindow(QMainWindow, Ui_mwindow_my_subjects):
         self.btn_delete_subject.clicked.connect(self.delete_subject)
 
         # Populates the list widget on window startup.
-        with open("subject_list.txt", "r") as data_file:
+        with open("data/subject_list.txt", "r") as data_file:
             subject_list = data_file.readlines()
             print(subject_list)
             print(len(subject_list))
@@ -72,7 +72,7 @@ class MySubjectsWindow(QMainWindow, Ui_mwindow_my_subjects):
 
     def save_subject_list(self) -> None:
         """Saves the subject list."""
-        with open("subject_list.txt", "w") as outfile:
+        with open("data/subject_list.txt", "w") as outfile:
             for i in range(self.list_widget_my_subjects.count()):
                 subject = self.list_widget_my_subjects.item(i).text()
                 outfile.write(subject + "\n")
@@ -85,7 +85,7 @@ class MySubjectsWindow(QMainWindow, Ui_mwindow_my_subjects):
             print(new_subject_name)
             self.list_widget_my_subjects.addItem(new_subject_name)
             self.list_widget_my_subjects.sortItems()
-            with open('subject_list.txt', 'a') as outfile:
+            with open("data/subject_list.txt", "a") as outfile:
                 outfile.write(new_subject_name + "\n")
             sort_subject_list()
             self.Dialog.close()

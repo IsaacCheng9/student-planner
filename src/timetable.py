@@ -26,7 +26,7 @@ def read_lessons() -> list:
     Returns:
         timetable: A list of lessons in the timetable.
     """
-    with open("data/timetable.json", "r") as outfile:
+    with open("resources/timetable.json", "r") as outfile:
         try:
             timetable = json.load(outfile)
         except ValueError:
@@ -81,7 +81,7 @@ class TimetableWindow(QMainWindow, Ui_mwindow_timetable):
             self.save_lesson)
 
         # Populates the combo box with subject options.
-        with open("data/subject_list.txt", "r") as data_file:
+        with open("resources/subject_list.txt", "r") as data_file:
             subject_list = data_file.readlines()
             for line in subject_list:
                 self.Dialog.comb_box_subject.addItem(line.strip("\n"))
@@ -108,7 +108,7 @@ class TimetableWindow(QMainWindow, Ui_mwindow_timetable):
 
     def save_timetable_list(self) -> None:
         """Updates the JSON file with the current timetable list."""
-        with open("data/timetable.json", "w") as outfile:
+        with open("resources/timetable.json", "w") as outfile:
             json.dump(self.timetable, outfile, ensure_ascii=False, indent=4)
         self.update_timetable()
 

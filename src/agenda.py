@@ -30,12 +30,12 @@ def read_tasks() -> tuple:
         task_list: A list of all tasks.
         task_list_hidden: A list of tasks excluding completed tasks.
     """
-    with open("data/task_list.json", "r") as outfile:
+    with open("resources/task_list.json", "r") as outfile:
         try:
             task_list = json.load(outfile)
             json.dump(task_list, sys.stdout, ensure_ascii=False, indent=4)
 
-            with open("data/task_list_hidden.json", "r") as outfile_hidden:
+            with open("resources/task_list_hidden.json", "r") as outfile_hidden:
                 task_list_hidden = json.load(outfile_hidden)
         except ValueError:
             print("Empty JSON file.")
@@ -92,7 +92,7 @@ class AgendaWindow(QMainWindow, Ui_mwindow_agenda):
         self.Dialog.button_box_new_task.accepted.connect(self.save_task)
 
         # Populates the combo box with subject options.
-        with open("data/subject_list.txt", "r") as data_file:
+        with open("resources/subject_list.txt", "r") as data_file:
             subject_list = data_file.readlines()
             for line in subject_list:
                 self.Dialog.comb_box_subject.addItem(line.strip("\n"))
@@ -153,12 +153,12 @@ class AgendaWindow(QMainWindow, Ui_mwindow_agenda):
 
     def save_task_list(self) -> None:
         """Updates the JSON file with the current task list."""
-        with open("data/task_list.json", "w") as outfile:
+        with open("resources/task_list.json", "w") as outfile:
             json.dump(self.task_list, outfile, ensure_ascii=False, indent=4)
 
         self.task_list_hidden[:] = [task for task in self.task_list if
                                     task["completed"] == "No"]
-        with open("data/task_list_hidden.json", "w") as outfile:
+        with open("resources/task_list_hidden.json", "w") as outfile:
             json.dump(self.task_list_hidden, outfile, ensure_ascii=False,
                       indent=4)
 

@@ -75,10 +75,12 @@ class AgendaWindow(QMainWindow, Ui_mwindow_agenda):
         self.task_list, self.task_list_hidden = read_tasks()
         super().__init__()
         self.setupUi(self)
-        self.setStyleSheet("""QTableWidget {background-color: transparent;}
+        self.setStyleSheet(
+            """QTableWidget {background-color: transparent;}
             QHeaderView::section {background-color: transparent;}
             QHeaderView {background-color: transparent;}
-            QTableCornerButton::section{background-color: transparent;}""")
+            QTableCornerButton::section{background-color: transparent;}"""
+        )
         self.btn_add_task.clicked.connect(self.open_dialog_add_task)
         self.btn_complete_task.clicked.connect(self.mark_task_complete)
         self.btn_delete_task.clicked.connect(self.delete_task)
@@ -109,9 +111,11 @@ class AgendaWindow(QMainWindow, Ui_mwindow_agenda):
         # Creates table to display tasks, resizing to fit content.
         self.table_widget_task_list.setRowCount(len(current_list))
         self.table_widget_task_list.horizontalHeader().setSectionResizeMode(
-            QtWidgets.QHeaderView.ResizeToContents)
+            QtWidgets.QHeaderView.ResizeToContents
+        )
         self.table_widget_task_list.verticalHeader().setSectionResizeMode(
-            QtWidgets.QHeaderView.Fixed)
+            QtWidgets.QHeaderView.Fixed
+        )
 
         # Adds tasks to the agenda.
         self.sort_task_list()
@@ -120,8 +124,10 @@ class AgendaWindow(QMainWindow, Ui_mwindow_agenda):
             current_column = 0
             for task_details in task.values():
                 self.table_widget_task_list.setItem(
-                    current_row, current_column,
-                    QtWidgets.QTableWidgetItem(task_details))
+                    current_row,
+                    current_column,
+                    QtWidgets.QTableWidgetItem(task_details),
+                )
                 current_column += 1
             current_row += 1
 
@@ -129,7 +135,8 @@ class AgendaWindow(QMainWindow, Ui_mwindow_agenda):
         """Saves new tasks to the agenda and JSON file."""
         new_subject = self.Dialog.comb_box_subject.currentText()
         new_due_date = self.Dialog.calendar_due_date.selectedDate().toString(
-            "dd/MM/yyyy")
+            "dd/MM/yyyy"
+        )
         new_completed = "No"
 
         # Validates task title input and adds task if validation passed.
@@ -139,33 +146,37 @@ class AgendaWindow(QMainWindow, Ui_mwindow_agenda):
                 "task_title": new_task_title,
                 "subject": new_subject,
                 "due_date": new_due_date,
-                "completed": new_completed}
+                "completed": new_completed,
+            }
             self.task_list.append(dict(task))
             self.save_task_list()
             self.Dialog.close()
             self.update_list()
         elif len(new_task_title.strip(" ")) == 0:
             self.Dialog.lbl_instruction.setText(
-                "You have not entered a task title. Please try again.")
+                "You have not entered a task title. Please try again."
+            )
         else:
             self.Dialog.lbl_instruction.setText(
-                "Your task title exceeds 30 characters. Please try again.")
+                "Your task title exceeds 30 characters. Please try again."
+            )
 
     def save_task_list(self) -> None:
         """Updates the JSON file with the current task list."""
         with open("resources/task_list.json", "w") as outfile:
             json.dump(self.task_list, outfile, ensure_ascii=False, indent=4)
 
-        self.task_list_hidden[:] = [task for task in self.task_list if
-                                    task["completed"] == "No"]
+        self.task_list_hidden[:] = [
+            task for task in self.task_list if task["completed"] == "No"
+        ]
         with open("resources/task_list_hidden.json", "w") as outfile:
-            json.dump(self.task_list_hidden, outfile, ensure_ascii=False,
-                      indent=4)
+            json.dump(self.task_list_hidden, outfile, ensure_ascii=False, indent=4)
 
     def sort_task_list(self) -> None:
         """Sorts task list by due date."""
-        self.task_list.sort(key=lambda task: datetime.strptime(
-            task["due_date"], "%d/%m/%Y"))
+        self.task_list.sort(
+            key=lambda task: datetime.strptime(task["due_date"], "%d/%m/%Y")
+        )
         self.save_task_list()
 
     def hide_completed_tasks(self) -> None:
@@ -186,39 +197,37 @@ class AgendaWindow(QMainWindow, Ui_mwindow_agenda):
         else:
             self.table_widget_task_list.item(selected_row, 3).setText("No")
 
-        selected_task_title = self.table_widget_task_list.item(
-            selected_row, 0).text()
-        selected_subject = self.table_widget_task_list.item(
-            selected_row, 1).text()
-        selected_due_date = self.table_widget_task_list.item(
-            selected_row, 2).text()
+        selected_task_title = self.table_widget_task_list.item(selected_row, 0).text()
+        selected_subject = self.table_widget_task_list.item(selected_row, 1).text()
+        selected_due_date = self.table_widget_task_list.item(selected_row, 2).text()
 
         # Iterates through task list for matching task and updates completion.
         for num, task in enumerate(self.task_list):
-            if (task["task_title"] == selected_task_title
-                    and task["subject"] == selected_subject
-                    and task["due_date"] == selected_due_date):
-                self.task_list[num]["completed"] = (self.table_widget_task_list
-                                                    .item(selected_row,
-                                                          3).text())
+            if (
+                task["task_title"] == selected_task_title
+                and task["subject"] == selected_subject
+                and task["due_date"] == selected_due_date
+            ):
+                self.task_list[num]["completed"] = self.table_widget_task_list.item(
+                    selected_row, 3
+                ).text()
         self.save_task_list()
         self.update_list()
 
     def delete_task(self) -> None:
         """Deletes selected task from agenda."""
         selected_row = self.table_widget_task_list.currentRow()
-        selected_task_title = self.table_widget_task_list.item(
-            selected_row, 0).text()
-        selected_subject = self.table_widget_task_list.item(
-            selected_row, 1).text()
-        selected_due_date = self.table_widget_task_list.item(
-            selected_row, 2).text()
+        selected_task_title = self.table_widget_task_list.item(selected_row, 0).text()
+        selected_subject = self.table_widget_task_list.item(selected_row, 1).text()
+        selected_due_date = self.table_widget_task_list.item(selected_row, 2).text()
 
         # Iterates through task list and deletes matching task.
         for task in self.task_list:
-            if (task["task_title"] == selected_task_title
-                    and task["subject"] == selected_subject
-                    and task["due_date"] == selected_due_date):
+            if (
+                task["task_title"] == selected_task_title
+                and task["subject"] == selected_subject
+                and task["due_date"] == selected_due_date
+            ):
                 self.task_list.remove(task)
         self.save_task_list()
         self.update_list()

@@ -67,7 +67,8 @@ class MySubjectsWindow(QMainWindow, Ui_mwindow_my_subjects):
         selected_item = self.list_widget_my_subjects.selectedItems()
         for item in selected_item:
             self.list_widget_my_subjects.takeItem(
-                self.list_widget_my_subjects.row(item))
+                self.list_widget_my_subjects.row(item)
+            )
         self.save_subject_list()
 
     def save_subject_list(self) -> None:
@@ -80,8 +81,7 @@ class MySubjectsWindow(QMainWindow, Ui_mwindow_my_subjects):
     def save_subject(self) -> None:
         """Saves input to a .txt file for the list of subjects."""
         new_subject_name = self.Dialog.line_edit_subject_name.text()
-        if len(new_subject_name) <= 30 and len(
-                new_subject_name.strip(" ")) > 0:
+        if len(new_subject_name) <= 30 and len(new_subject_name.strip(" ")) > 0:
             print(new_subject_name)
             self.list_widget_my_subjects.addItem(new_subject_name)
             self.list_widget_my_subjects.sortItems()
@@ -91,10 +91,12 @@ class MySubjectsWindow(QMainWindow, Ui_mwindow_my_subjects):
             self.Dialog.close()
         elif len(new_subject_name.strip(" ")) == 0:
             self.Dialog.lbl_instruction.setText(
-                "You have not entered a subject name. Please try again.")
+                "You have not entered a subject name. Please try again."
+            )
         else:
             self.Dialog.lbl_instruction.setText(
-                "Your subject name exceeds 30 characters. Please try again.")
+                "Your subject name exceeds 30 characters. Please try again."
+            )
 
 
 if __name__ == "__main__":

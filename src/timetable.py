@@ -36,9 +36,7 @@ def read_lessons() -> list:
         # Adds empty dictionary values for empty timetable slots.
         missing_lessons = 25 - len(timetable)
         for index in range(missing_lessons):
-            lesson = {"subject": " ",
-                      "teacher": " ",
-                      "room": " "}
+            lesson = {"subject": " ", "teacher": " ", "room": " "}
             timetable.append(lesson)
 
     return timetable
@@ -65,20 +63,20 @@ class TimetableWindow(QMainWindow, Ui_mwindow_timetable):
         self.Dialog = EditTimetableDialog()
         self.timetable = read_lessons()
         self.setupUi(self)
-        self.setStyleSheet("""QTableWidget {background-color: transparent;}
+        self.setStyleSheet(
+            """QTableWidget {background-color: transparent;}
             QHeaderView::section {background-color: transparent;}
             QHeaderView {background-color: transparent;}
-            QTableCornerButton::section{background-color: transparent;}""")
-        self.btn_edit_timetable.clicked.connect(
-            self.open_dialog_edit_timetable)
+            QTableCornerButton::section{background-color: transparent;}"""
+        )
+        self.btn_edit_timetable.clicked.connect(self.open_dialog_edit_timetable)
         self.btn_clear_timetable.clicked.connect(self.clear_timetable_slot)
         self.update_timetable()
 
     def open_dialog_edit_timetable(self) -> None:
         """Opens the dialog window for editing the timetable."""
         self.Dialog.button_box_edit_timetable.accepted.disconnect()
-        self.Dialog.button_box_edit_timetable.accepted.connect(
-            self.save_lesson)
+        self.Dialog.button_box_edit_timetable.accepted.connect(self.save_lesson)
 
         # Populates the combo box with subject options.
         with open("resources/subject_list.txt", "r") as data_file:
@@ -91,20 +89,26 @@ class TimetableWindow(QMainWindow, Ui_mwindow_timetable):
         """Populates the timetable with all lessons."""
         # Resizes columns and rows to fit the contents.
         self.table_widget_timetable.horizontalHeader().setSectionResizeMode(
-            QtWidgets.QHeaderView.ResizeToContents)
+            QtWidgets.QHeaderView.ResizeToContents
+        )
         self.table_widget_timetable.verticalHeader().setSectionResizeMode(
-            QtWidgets.QHeaderView.ResizeToContents)
+            QtWidgets.QHeaderView.ResizeToContents
+        )
 
         # Adds lesson details to each cell in the timetable.
         for row_index, row in enumerate(self.timetable[::5]):
             for column_index, column in enumerate(range(5)):
                 index = (row_index * 5) + column_index
-                lesson_details = ((self.timetable[index]["subject"]) + "\n" +
-                                  (self.timetable[index]["teacher"]) + "\n" +
-                                  (self.timetable[index]["room"]))
+                lesson_details = (
+                    (self.timetable[index]["subject"])
+                    + "\n"
+                    + (self.timetable[index]["teacher"])
+                    + "\n"
+                    + (self.timetable[index]["room"])
+                )
                 self.table_widget_timetable.setItem(
-                    row_index, column_index,
-                    QtWidgets.QTableWidgetItem(lesson_details))
+                    row_index, column_index, QtWidgets.QTableWidgetItem(lesson_details)
+                )
 
     def save_timetable_list(self) -> None:
         """Updates the JSON file with the current timetable list."""
@@ -123,14 +127,18 @@ class TimetableWindow(QMainWindow, Ui_mwindow_timetable):
         # Saves lesson to selected timetable slot if length validations passed.
         if len(lesson_teacher) > 30:
             self.Dialog.lbl_instruction.setText(
-                "Your teacher input exceeds 30 characters. Please try again.")
+                "Your teacher input exceeds 30 characters. Please try again."
+            )
         elif len(lesson_room) > 20:
             self.Dialog.lbl_instruction.setText(
-                "Your room input exceeds 30 characters. Please try again.")
+                "Your room input exceeds 30 characters. Please try again."
+            )
         else:
-            lesson = {"subject": lesson_subject,
-                      "teacher": lesson_teacher,
-                      "room": lesson_room}
+            lesson = {
+                "subject": lesson_subject,
+                "teacher": lesson_teacher,
+                "room": lesson_room,
+            }
             index = (selected_row * 5) + selected_column
             self.timetable[index] = lesson
             self.save_timetable_list()
@@ -142,9 +150,7 @@ class TimetableWindow(QMainWindow, Ui_mwindow_timetable):
         selected_column = self.table_widget_timetable.currentColumn()
 
         # Removes the lesson details from the timetable slot.
-        lesson = {"subject": "",
-                  "teacher": "",
-                  "room": ""}
+        lesson = {"subject": "", "teacher": "", "room": ""}
         index = (selected_row * 5) + selected_column
         self.timetable[index] = lesson
         self.save_timetable_list()

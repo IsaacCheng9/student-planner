@@ -94,6 +94,7 @@ class AgendaWindow(QMainWindow, Ui_mwindow_agenda):
         self.Dialog.button_box_new_task.accepted.connect(self.save_task)
 
         # Populates the combo box with subject options.
+        self.Dialog.comb_box_subject.clear()
         with open("resources/subject_list.txt", "r") as data_file:
             subject_list = data_file.readlines()
             for line in subject_list:

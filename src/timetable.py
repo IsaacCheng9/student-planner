@@ -80,6 +80,7 @@ class TimetableWindow(QMainWindow, Ui_mwindow_timetable):
 
         # Populates the combo box with subject options.
         with open("resources/subject_list.txt", "r") as data_file:
+            self.Dialog.comb_box_subject.clear()
             subject_list = data_file.readlines()
             for line in subject_list:
                 self.Dialog.comb_box_subject.addItem(line.strip("\n"))

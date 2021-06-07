@@ -1,0 +1,127 @@
+[
+    {
+        "subject": "Computer Science",
+        "teacher": "John Doe",
+        "room": "C1"
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": "Mathematics",
+        "teacher": "Jane Doe",
+        "room": "M1"
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": " ",
+        "teacher": " ",
+        "room": " "
+    },
+    {
+        "subject": "Further Mathematics",
+        "teacher": "Jane Doe",
+        "room": "FM1"
+    }
+]

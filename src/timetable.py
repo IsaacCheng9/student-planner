@@ -15,6 +15,7 @@ from setup.timetable_setup import Ui_mwindow_timetable
 
 def main() -> None:
     app = QtWidgets.QApplication(sys.argv)
+    app.setStyle("fusion")
     mwindow_timetable = TimetableWindow()
     mwindow_timetable.show()
     sys.exit(app.exec_())

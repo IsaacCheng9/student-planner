@@ -17,6 +17,7 @@ from my_subjects import MySubjectsWindow
 
 def main() -> None:
     app = QtWidgets.QApplication(sys.argv)
+    app.setStyle("fusion")
     mwindow_menu = MainMenuWindow()
     mwindow_menu.show()
     sys.exit(app.exec_())

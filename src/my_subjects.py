@@ -11,6 +11,7 @@ from setup.my_subjects_setup import Ui_mwindow_my_subjects
 
 def main() -> None:
     app = QtWidgets.QApplication(sys.argv)
+    app.setStyle("fusion")
     mwindow_my_subjects = MySubjectsWindow()
     mwindow_my_subjects.show()
     sys.exit(app.exec_())

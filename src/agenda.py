@@ -18,6 +18,7 @@ from setup.agenda_setup import Ui_mwindow_agenda
 def main() -> None:
     """Opens the agenda window on start-up."""
     app = QtWidgets.QApplication(sys.argv)
+    app.setStyle("fusion")
     mwindow_agenda = AgendaWindow()
     mwindow_agenda.show()
     sys.exit(app.exec_())

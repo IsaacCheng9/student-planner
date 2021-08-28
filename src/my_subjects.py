@@ -5,8 +5,8 @@ import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QDialog, QMainWindow
 
-from src.setup.add_subject_setup import Ui_dialog_new_subject
-from src.setup.my_subjects_setup import Ui_mwindow_my_subjects
+from setup.add_subject_setup import Ui_dialog_new_subject
+from setup.my_subjects_setup import Ui_mwindow_my_subjects
 
 
 def main() -> None:

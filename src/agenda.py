@@ -11,8 +11,8 @@ from datetime import datetime
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QDialog, QMainWindow
 
-from src.setup.add_task_setup import Ui_dialog_new_task
-from src.setup.agenda_setup import Ui_mwindow_agenda
+from setup.add_task_setup import Ui_dialog_new_task
+from setup.agenda_setup import Ui_mwindow_agenda
 
 
 def main() -> None:

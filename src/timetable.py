@@ -9,8 +9,8 @@ import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QDialog, QMainWindow
 
-from src.setup.edit_timetable_setup import Ui_dialog_edit_timetable
-from src.setup.timetable_setup import Ui_mwindow_timetable
+from setup.edit_timetable_setup import Ui_dialog_edit_timetable
+from setup.timetable_setup import Ui_mwindow_timetable
 
 
 def main() -> None:

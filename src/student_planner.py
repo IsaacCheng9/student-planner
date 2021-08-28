@@ -9,7 +9,7 @@ import sys
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 
-from src.setup.student_planner_setup import Ui_mwindow_menu
+from setup.student_planner_setup import Ui_mwindow_menu
 from agenda import AgendaWindow
 from timetable import TimetableWindow
 from my_subjects import MySubjectsWindow
